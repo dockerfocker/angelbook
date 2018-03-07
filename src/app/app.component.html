@@ -1,0 +1,82 @@
+<!--The whole content below can be removed with the new code.-->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      {{listTitle}}
+  </div>
+  
+  <div class="panel-body">
+      <legend>Information: </legend>
+      <form id="formNewNaruto" name="formNewNaruto" #narutoData="ngForm" (ngSubmit)="sendData(narutoData.value)">
+        <div class="row">
+          <div class="col-md-2">
+              <label >Name: </label>
+          </div>
+          <div class="col-md-4">
+              <input type="text" name="name" id="name" ngModel>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2">
+              <label>Genre: </label>
+          </div>
+          <div class="col-md-4">
+              <input type="text" name="genre" id="genre" ngModel>
+          </div>
+        </div>
+        
+        <br>
+        <div class="row">
+          <div class="col-md-2">
+              <label>Price: </label>
+          </div>
+          <div class="col-md-4">
+              <input type="text" name="price" id="price" ngModel> 
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+           <div class="col-md-2">
+              <label>Author: </label>
+           </div>
+           <div class="col-md-4">
+              <input type="text" name="author" id="author" ngModel>
+           </div>
+        </div>
+        
+        <br>
+        <input type="submit" value="Add Character">
+        <h3 *ngIf = "isAdded" >{{bookAdded}}</h3>
+    </form>
+  
+ 
+
+  <div class="panel panel-default">
+    <div class="table-responsive">
+      <table class="table" *ngIf='students && students.length'>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let studs of students'>
+              <td>{{studs.id}}</td>
+              <td><a href="#">{{studs.name|uppercase}}</a></td>
+              <td>{{studs.genre}}</td>
+              <td>{{studs.price}}</td>
+              <td>{{studs.author}}</td>
+              <button (click) = "deleteProduct(studs.id)"><a>DEL</a></button>
+            </tr>
+        </tbody>
+      </table>
+      
+        <br>
+        
+  </div>
+ </div>
